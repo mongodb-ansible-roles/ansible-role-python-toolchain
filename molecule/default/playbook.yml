@@ -1,0 +1,8 @@
+---
+- become: true
+  name: Converge
+  hosts: all
+  roles:
+    - role: ansible-role-python-toolchain
+      vars:
+        python_toolchain_url: https://ansible-molecule-test.s3.amazonaws.com/test_pythontoolchain.tar.gz

@@ -1,0 +1,4 @@
+---
+python_toolchain_final_dest: /opt/python
+python_toolchain_sha: ba92de2700c04ee2d4f82c3ffdfc33105140cb04
+python_toolchain_url: https://s3.amazonaws.com/boxes.10gen.com/build/toolchain-drivers/mongo-python-driver/python-toolchain-{{ ansible_distribution | lower | replace('redhat', 'rhel') }}{{ ansible_distribution_version | replace('.', '') }}-{{ python_toolchain_sha }}.tar.gz

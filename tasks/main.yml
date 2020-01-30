@@ -1,0 +1,20 @@
+---
+- name: Remove old toolchain
+  become: true
+  file:
+    path: "{{ python_toolchain_final_dest }}"
+    state: absent
+  when:
+    - toolchain_archive_contents.changed
+
+- name: Move python directory from tmp to opt
+  become: true
+  command: mv /tmp/python {{ python_toolchain_final_dest }}
+  when:
+    - toolchain_archive_contents.changed
+
+- name: Create version file
+  become: true
+  copy:
+    content: "{{ python_toolchain_sha }}"
+    dest: "{{ python_toolchain_final_dest }}/toolchain_version"
